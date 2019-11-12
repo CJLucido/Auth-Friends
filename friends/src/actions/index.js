@@ -28,10 +28,12 @@ export const login = (payload) => dispatch => {
     axios
         .post('http://localhost:5000/api/login', payload)
         .then(res => {
-            console.log("this is res", res)
+            console.log("this is res.data.payload", res.data.payload);
+            localStorage.setItem("token", res.data.payload);
+            friendSuccess()
         })
         .catch(err => {
-            console.log("this is error", err)
+            console.log("this is login error", err)
         })
 }
 
@@ -43,7 +45,7 @@ export const fetchFriends = () => dispatch => {
             console.log("this is res", res)
         })
         .catch(err => {
-            console.log("this is error", err)
+            console.log("this is fetching error", err)
         })
 } 
 
@@ -60,7 +62,7 @@ export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
             console.log("this is res", res)
         })
         .catch(err => {
-            console.log("this is error", err)
+            console.log("this is posting error", err)
         })
 }
 

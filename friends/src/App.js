@@ -17,7 +17,7 @@ function App() {
       <header className="App-header">
         <ul>
           <li>
-            <Link to="/api/login">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
 
           <li>
@@ -26,7 +26,7 @@ function App() {
         </ul>
 
         <Switch>
-          <Route path="/api/login" component={Login}/>
+          <Route path="/login" component={Login}/>
           <Route component={Login}/>
         </Switch>
       </header>
