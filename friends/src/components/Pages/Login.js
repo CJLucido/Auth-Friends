@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {login} from '../../actions'
 
 function Login(props){
-    const [userInput, setUserInput] = useState({'username': " ", "password": " "})
+    const [userInput, setUserInput] = useState({'username': "", "password": ""})
 
     const handleChange = type => e => {
        setUserInput({ ...userInput, type: userInput[type] = e.target.value })
