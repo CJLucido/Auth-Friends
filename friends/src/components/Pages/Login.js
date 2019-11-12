@@ -11,7 +11,8 @@ function Login(props){
        setUserInput({ ...userInput, type: userInput[type] = e.target.value })
     }
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault()
         let captureEntries = {
             username: userInput['username'],
             password: userInput['password']
