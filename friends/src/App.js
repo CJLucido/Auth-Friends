@@ -2,6 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {fetchFriends} from "./actions"
+
+import {connect} from 'react-redux'
+
+
 function App() {
   return (
     <div className="App">
@@ -23,4 +28,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  fetchFriends
+}
+
+export default connect(state => state, mapDispatchToProps)(App) ;
