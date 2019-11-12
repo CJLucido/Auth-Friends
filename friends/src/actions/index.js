@@ -23,6 +23,18 @@ export const friendAging = data => ({type: AGE_FRIEND, payload: data})
 export const friendEmailing = data => ({type: EMAIL_FRIEND, payload: data})
 /////////////////////////
 
+export const login = (payload) => dispatch => {
+    dispatch(friendLoading())
+    axios
+        .post('http://localhost:5000/api/login', payload)
+        .then(res => {
+            console.log("this is res", res)
+        })
+        .catch(err => {
+            console.log("this is error", err)
+        })
+}
+
 export const fetchFriends = () => dispatch => {
     dispatch(friendLoading())
     axios

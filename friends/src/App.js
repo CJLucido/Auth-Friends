@@ -17,19 +17,16 @@ function App() {
       <header className="App-header">
         <ul>
           <li>
-            <Link to="">Login</Link>
+            <Link to="/api/login">Login</Link>
           </li>
 
           <li>
-            <Link>Protected</Link>
+            
           </li>
         </ul>
 
         <Switch>
-          <PrivateRoute>
-
-          </PrivateRoute>
-          <Route path="/login" component={Login}/>
+          <Route path="/api/login" component={Login}/>
           <Route component={Login}/>
         </Switch>
       </header>
