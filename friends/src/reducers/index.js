@@ -8,6 +8,7 @@ import {
 } from '../actions'
 
 const initialState = {
+    friends: [],
     isFetching: false,
     error: null,
     credentials: {
@@ -35,6 +36,7 @@ export function reducer(state = initialState, action){
         case LOAD_FRIENDS_SUCCESS:
             return {
                 ...state,
+                friends: action.payload,
                 isFetching: false,
                 error: null
             }

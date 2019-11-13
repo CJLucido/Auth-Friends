@@ -31,7 +31,7 @@ export const login = (payload) => dispatch => {
         .then(res => {
             console.log("this is res.data.payload", res.data.payload);
             localStorage.setItem("token", res.data.payload);
-            friendSuccess()
+            //friendSuccess()
         })
         .catch(err => {
             console.log("this is login error", err)
@@ -39,7 +39,7 @@ export const login = (payload) => dispatch => {
 }
 
 export const fetchFriends = () => dispatch => {
-    dispatch(friendLoading())
+    //dispatch(friendLoading()) this makes the response load twice
     const authAxios = axiosWithAuth();
     authAxios
         .get('http://localhost:5000/api/friends', {
@@ -48,11 +48,13 @@ export const fetchFriends = () => dispatch => {
             }
         })
         .then(res => {
-            console.log("this is fetch res", res)
+            console.log("this is fetch res.data", res.data);
+           dispatch(friendSuccess(res.data))
         })
         .catch(err => {
             console.log("this is fetching error", err)
         })
+   
 } 
 
 export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
