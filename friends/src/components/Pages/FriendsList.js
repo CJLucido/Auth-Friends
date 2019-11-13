@@ -12,15 +12,10 @@ const handleClick = e => {
      props.fetchFriends()
     }
 
-    let friendArray = []
-    friendArray = props.friends
-
-    console.log("this is friends", props.friends)
-    console.log("this is friends array", friendArray)
     return(
         <div>
             <button onClick={handleClick}>FriendsList</button>
-            {friendArray.map(friend => 
+            {props.friends.map(friend => 
                <div key={friend.id} style={{border: "3px solid white"}}>
                     <p>{friend.name}</p>
                     <p>{friend.age}</p>
@@ -37,7 +32,7 @@ const mapDispatchToProps ={
 
 export default connect(state => state, mapDispatchToProps)(FriendsList)
 
-// friendlies.map(friend => {
+// friendlies.map(friend => { DONT WRAP IN CURLY BRACES!!!!
 //     <div>
 //         <p>{friend.name}</p>
 //         <p>{friend.age}</p>
