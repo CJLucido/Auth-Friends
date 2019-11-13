@@ -83,11 +83,6 @@ export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
         })
 }
 
-// { 
-//     name: nameFriend,
-//     age: ageFriend,
-//     email: emailFriend
-// }
 
 //
 
