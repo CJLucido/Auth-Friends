@@ -10,6 +10,7 @@ import {connect} from 'react-redux'
 import Login from './components/Pages/Login'
 ///////////ORGANISMS/////////////////////
 import PrivateRoute from "./components/Organisms/PrivateRoute"
+import FriendsList from './components/Pages/FriendsList';
 
 function App() {
   return (
@@ -21,11 +22,14 @@ function App() {
           </li>
 
           <li>
-            
+            <Link to='/friends'>Friends</Link>
           </li>
         </ul>
 
         <Switch>
+        <PrivateRoute path="/friends">
+          <FriendsList/>
+        </PrivateRoute>
           <Route path="/login" component={Login}/>
           <Route component={Login}/>
         </Switch>
