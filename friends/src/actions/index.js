@@ -20,10 +20,14 @@ export const MAKE_FRIEND = "MAKE_FRIEND"
 export const friendSuccess = data => ({type: LOAD_FRIENDS_SUCCESS, payload: data})
 export const friendFailure = data => ({type: LOAD_FRIENDS_FAILURE, payload: data})
 export const friendLoading = () => ({type: LOADING_FRIENDS})
+
 //
-// export const friendNaming = data => ({type:NAME_FRIEND, payload: data})
-// export const friendAging = data => ({type: AGE_FRIEND, payload: data})
-// export const friendEmailing = data => ({type: EMAIL_FRIEND, payload: data})
+
+export const friendNaming = data => ({type:NAME_FRIEND, payload: data})
+export const friendAging = data => ({type: AGE_FRIEND, payload: data})
+export const friendEmailing = data => ({type: EMAIL_FRIEND, payload: data})
+
+//
 
 export const friendMaking = data => ({type:MAKE_FRIEND, payload: data})
 /////////////////////////
@@ -62,7 +66,6 @@ export const fetchFriends = () => dispatch => {
 } 
 
 export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
-    dispatch(friendLoading())
     axios
         .post('http://localhost:5000/api/friends', {
             headers: {
@@ -75,7 +78,7 @@ export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
             email: emailFriend}
         )
         .then(res => {
-            console.log("this is res", res)
+            console.log("this is post friend res", res)
         })
         .catch(err => {
             console.log("this is posting error", err)
@@ -84,14 +87,14 @@ export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
 
 //
 
-// export const updateName = name => dispatch =>{
-//     dispatch(friendNaming(name))
-// }
+export const updateName = name => dispatch =>{
+    dispatch(friendNaming(name))
+}
 
-// export const updateAge = age => dispatch => {
-//     dispatch(friendAging(age))
-// }
+export const updateAge = age => dispatch => {
+    dispatch(friendAging(age))
+}
 
-// export const updateEmail = email => dispatch => {
-//     dispatch(friendEmailing(email))
-// }
+export const updateEmail = email => dispatch => {
+    dispatch(friendEmailing(email))
+}
