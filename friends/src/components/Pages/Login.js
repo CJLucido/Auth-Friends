@@ -17,7 +17,9 @@ function Login(props){
             username: userInput['username'],
             password: userInput['password']
         }
-        props.login(captureEntries)
+        props.login(captureEntries, props)
+    
+   
     }
 
 

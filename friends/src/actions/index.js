@@ -15,12 +15,14 @@ export const EMAIL_FRIEND = "EMAIL_FRIEND"
 
 export const MAKE_FRIEND = "MAKE_FRIEND"
 
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+
 //////////////////////////////////////
 
 export const friendSuccess = data => ({type: LOAD_FRIENDS_SUCCESS, payload: data})
 export const friendFailure = data => ({type: LOAD_FRIENDS_FAILURE, payload: data})
 export const friendLoading = () => ({type: LOADING_FRIENDS})
-
+export const loginSuccess = () => ({type: LOGIN_SUCCESS})
 //
 
 export const friendNaming = data => ({type:NAME_FRIEND, payload: data})
@@ -30,16 +32,21 @@ export const friendEmailing = data => ({type: EMAIL_FRIEND, payload: data})
 //
 
 export const friendMaking = data => ({type:MAKE_FRIEND, payload: data})
+
+const redirect = data => {
+    return data.history.push("/friends")
+}
 /////////////////////////
 
-export const login = (payload) => dispatch => {
+export const login = (payload, data) => dispatch => {
     dispatch(friendLoading())
     axios
         .post('http://localhost:5000/api/login', payload)
         .then(res => {
             console.log("this is res.data.payload", res.data.payload);
             localStorage.setItem("token", res.data.payload);
-            //friendSuccess()
+            loginSuccess()
+            redirect(data)
         })
         .catch(err => {
             console.log("this is login error", err)
