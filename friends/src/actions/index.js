@@ -1,4 +1,5 @@
 import axios from "axios"
+import axiosWithAuth from "../axios/axiosWithAuth"
 
 export const LOAD_FRIENDS_SUCCESS = "LOAD_FRIENDS_SUCCESS"
 
@@ -39,10 +40,15 @@ export const login = (payload) => dispatch => {
 
 export const fetchFriends = () => dispatch => {
     dispatch(friendLoading())
-    axios
-        .get('http://localhost:5000/api/login')
+    const authAxios = axiosWithAuth();
+    authAxios
+        .get('http://localhost:5000/api/login', {
+            headers: {
+                Authorization: localStorage.getItem("token"),
+            }
+        })
         .then(res => {
-            console.log("this is res", res)
+            console.log("this is fetch res", res)
         })
         .catch(err => {
             console.log("this is fetching error", err)

@@ -1,10 +1,15 @@
 import React from 'react'
 
+import {connect} from "react-redux"
 
-function FriendsList(){
+function FriendsList(props){
     return(
         null
     )
 }
 
-export default FriendsList
+const mapDispatchToProps ={
+    fetchFriends
+}
+
+export default connect(state => state, mapDispatchToProps)(FriendsList)
