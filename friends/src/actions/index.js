@@ -42,7 +42,7 @@ export const fetchFriends = () => dispatch => {
     dispatch(friendLoading())
     const authAxios = axiosWithAuth();
     authAxios
-        .get('http://localhost:5000/api/login', {
+        .get('http://localhost:5000/api/friends', {
             headers: {
                 Authorization: localStorage.getItem("token"),
             }
