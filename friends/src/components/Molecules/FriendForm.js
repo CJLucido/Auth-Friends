@@ -29,7 +29,7 @@ function FriendForm(props){
         <label name='email'>Email</label>
         <input type="text" name='email' value={props.email} onChange={handleNewEmail}/>
 
-        <button type="button" onClick={()=> props.postFriend(props.name, props.age, props.email)}>Make a Smurf!</button>
+        <button type="button" onClick={()=> props.postFriend(props.name, props.age, props.email)}>Make a Friend!</button>
         
         
         </form>

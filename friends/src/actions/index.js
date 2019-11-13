@@ -66,16 +66,14 @@ export const fetchFriends = () => dispatch => {
 } 
 
 export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
-    axios
-        .post('http://localhost:5000/api/friends', {
-            headers: {
-                Authorization: localStorage.getItem("token"),
-            }
-        },
-        { 
+    const authAxios = axiosWithAuth();
+    authAxios
+        .post('http://localhost:5000/api/friends', { 
             name: nameFriend,
             age: ageFriend,
-            email: emailFriend}
+            email: emailFriend
+        }
+       
         )
         .then(res => {
             console.log("this is post friend res", res)
@@ -84,6 +82,12 @@ export const postFriend = (nameFriend, ageFriend, emailFriend) => dispatch => {
             console.log("this is posting error", err)
         })
 }
+
+// { 
+//     name: nameFriend,
+//     age: ageFriend,
+//     email: emailFriend
+// }
 
 //
 

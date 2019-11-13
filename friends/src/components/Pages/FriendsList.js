@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 
 import {fetchFriends} from "../../actions"
 
-
+import FriendForm from "../Molecules/FriendForm"
 
 function FriendsList(props){
     
@@ -15,6 +15,7 @@ const handleClick = e => {
     return(
         <div>
             <button onClick={handleClick}>FriendsList</button>
+            <FriendForm/>
             {props.friends.map(friend => 
                <div key={friend.id} style={{border: "3px solid white"}}>
                     <p>{friend.name}</p>
